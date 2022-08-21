@@ -23,24 +23,30 @@ public class App {
             printGuessesLeft(i);
 
             // Get guess from user
-            guess = getGuess(s);
+            guess = getGuess(s).toLowerCase();
 
             // Get result of guess
             result = Wordle.scoreGuess(target, guess);
 
-            // Print to screen
-            System.out.println(result);
+            // Print to screen using ansi colours
+            result.stream().forEach(x -> {
+                System.out.print(x.colour().ansiColour + x.letter() + Colour.RESET.ansiColour);
+            });
+            System.out.println("\n");
 
             // Check if won
             if (target.equals(guess)) {
-                System.out.printf("You won with %d guesses left! Congratulations!!!\n", (i - 1));
+                String str = i > 2 ? "guesses" : "guess";
+                System.out.printf("You won with %d %s left! Congratulations!!!\n\n", (i - 1), str);
                 break;
             }
         }
 
         // Print lost message if user has lost game
         if (!target.equals(guess)) {
-            System.out.println("Sorry that guess is incorrect and you have run out of guesses. Better luck next time!");
+            System.out.printf(
+                    "Sorry that guess is incorrect and you have run out of guesses. The correct word was %s%s%s. Better luck next time!\n",
+                    Colour.GREEN.ansiColour, target, Colour.RESET.ansiColour);
         }
 
         // Close scanner
@@ -68,9 +74,7 @@ public class App {
     }
 
     private static void printGuessesLeft(int i) {
-        String str = "guesses";
-        if (i < 2)
-            str = "guess";
+        String str = i > 1 ? "guesses" : "guess";
         System.out.printf("You have %d %s left...\n", i, str);
     }
 }

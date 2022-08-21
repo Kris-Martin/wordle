@@ -31,7 +31,7 @@ public class WordleTest {
                 new Pair('e', Colour.GREEN),
                 new Pair('q', Colour.RED),
                 new Pair('u', Colour.RED),
-                new Pair('a', Colour.ORANGE),
+                new Pair('a', Colour.YELLOW),
                 new Pair('l', Colour.RED)));
         ArrayList<Pair> result = Wordle.scoreGuess(target, guess);
         assertEquals(expected, result);

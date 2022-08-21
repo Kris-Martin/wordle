@@ -28,7 +28,7 @@ public class Wordle {
             if (letter == correct) {
                 result.add(new Pair(letter, Colour.GREEN));
             } else if (target.indexOf(letter) != -1) {
-                result.add(new Pair(letter, Colour.ORANGE));
+                result.add(new Pair(letter, Colour.YELLOW));
             } else {
                 result.add(new Pair(letter, Colour.RED));
             }
