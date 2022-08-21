@@ -36,8 +36,8 @@ public class App {
 
             // Check if won
             if (target.equals(guess)) {
-                String str = i > 2 ? "guesses" : "guess";
-                System.out.printf("You won with %d %s left! Congratulations!!!\n\n", (i - 1), str);
+                String isPlural = i > 2 ? "guesses" : "guess";
+                System.out.printf("You won with %d %s left! Congratulations!!!\n\n", (i - 1), isPlural);
                 break;
             }
         }
@@ -74,7 +74,7 @@ public class App {
     }
 
     private static void printGuessesLeft(int i) {
-        String str = i > 1 ? "guesses" : "guess";
-        System.out.printf("You have %d %s left...\n", i, str);
+        String isPlural = i > 1 ? "guesses" : "guess";
+        System.out.printf("You have %d %s left...\n", i, isPlural);
     }
 }
