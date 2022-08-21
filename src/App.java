@@ -14,6 +14,7 @@ public class App {
 
         // Welcome user
         System.out.println("\nWelcome to Wordle!!!\n");
+
         // Initialise scanner ready for user input
         Scanner s = new Scanner(System.in);
 
@@ -29,28 +30,42 @@ public class App {
             result = Wordle.scoreGuess(target, guess);
 
             // Print to screen using ansi colours
-            result.stream().forEach(x -> {
-                System.out.print(x.colour().ansiColour + x.letter() + Colour.RESET.ansiColour);
-            });
-            System.out.println("\n");
+            printResult(result);
 
             // Check if won
-            if (target.equals(guess)) {
-                String isPlural = i > 2 ? "guesses" : "guess";
-                System.out.printf("You won with %d %s left! Congratulations!!!\n\n", (i - 1), isPlural);
+            if (checkWin(target, guess, i))
                 break;
-            }
         }
 
         // Print lost message if user has lost game
+        checkLoss(guess, target);
+
+        // Close scanner
+        s.close();
+    }
+
+    private static void checkLoss(String guess, String target) {
         if (!target.equals(guess)) {
             System.out.printf(
                     "Sorry that guess is incorrect and you have run out of guesses. The correct word was %s%s%s. Better luck next time!\n",
                     Colour.GREEN.ansiColour, target, Colour.RESET.ansiColour);
         }
+    }
 
-        // Close scanner
-        s.close();
+    private static boolean checkWin(String target, String guess, int i) {
+        if (target.equals(guess)) {
+            String isPlural = i > 2 ? "guesses" : "guess";
+            System.out.printf("You won with %d %s left! Congratulations!!!\n\n", (i - 1), isPlural);
+            return true;
+        }
+        return false;
+    }
+
+    private static void printResult(ArrayList<Pair> result) {
+        result.stream().forEach(x -> {
+            System.out.print(x.colour().ansiColour + x.letter() + Colour.RESET.ansiColour);
+        });
+        System.out.println("\n");
     }
 
     private static String getGuess(Scanner s) {
