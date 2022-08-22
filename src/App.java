@@ -10,7 +10,7 @@ public class App {
         ArrayList<Pair> result = new ArrayList<>();
 
         // Set target word
-        String target = "apple";
+        String target = JSONParser.getRandomWord();
 
         // Welcome user
         System.out.println("\nWelcome to Wordle!!!\n");
