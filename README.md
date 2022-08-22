@@ -6,7 +6,7 @@ To use app, download wordle.jar and then open a terminal in the directory you sa
 java -jar wordle.jar
 ```
 
-If you would like to build the project yourself see instructions at the end of this [end of this](#getting-started) README.
+If you would like to build the project yourself see the instructions at the [end of this](#getting-started) README.
 
 ## MVP
 

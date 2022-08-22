@@ -1,2 +1,2 @@
-.vscode
-/bin
+/bin/*.class
+/bin/*.json
