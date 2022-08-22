@@ -1,3 +1,6 @@
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,6 +11,7 @@ public class App {
         final int GUESSES = 6;
         String guess = "";
         ArrayList<Pair> result = new ArrayList<>();
+        ArrayList<ArrayList<Pair>> results = new ArrayList<>();
 
         // Set target word
         String target = JSONParser.getRandomWord();
@@ -28,13 +32,24 @@ public class App {
 
             // Get result of guess
             result = Wordle.scoreGuess(target, guess);
+            results.add(result);
 
             // Print to screen using ansi colours
             printResult(result);
 
             // Check if won
-            if (checkWin(target, guess, i))
+            if (checkWin(target, guess, i)) {
+
+                StringBuilder emojiResults = getEmojiResults(
+                        GUESSES, results, i);
+
+                System.out.println(emojiResults);
+
+                // Copy to clipboard
+                copyToClipboard(emojiResults);
                 break;
+            }
+
         }
 
         // Print lost message if user has lost game
@@ -42,6 +57,34 @@ public class App {
 
         // Close scanner
         s.close();
+    }
+
+    private static void copyToClipboard(StringBuilder emojiResults) {
+
+        StringSelection selection = new StringSelection(
+                emojiResults.toString());
+
+        Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();
+        c.setContents(selection, selection);
+
+        System.out.println("Results copied to clipboard. Paste them anywhere you'd like to share!\n");
+    }
+
+    private static StringBuilder getEmojiResults(final int GUESSES, ArrayList<ArrayList<Pair>> results, int i) {
+
+        StringBuilder emojiResults = new StringBuilder();
+
+        emojiResults.append(
+                String.format("\nWordle %d/%d\n\n", GUESSES - (i - 1), GUESSES));
+
+        results.forEach(r -> {
+            r.forEach(l -> {
+                emojiResults.append(l.colour().emoji);
+            });
+            emojiResults.append("\n");
+        });
+
+        return emojiResults;
     }
 
     private static void checkLoss(String guess, String target) {
