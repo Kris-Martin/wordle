@@ -5,7 +5,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         // Initialise game values
-        final int GUESSES = 5;
+        final int GUESSES = 6;
         String guess = "";
         ArrayList<Pair> result = new ArrayList<>();
 
