@@ -47,6 +47,6 @@ public class JSONParser {
 
         } while (!validWord);
 
-        return targetWord;
+        return targetWord.strip().toLowerCase();
     }
 }

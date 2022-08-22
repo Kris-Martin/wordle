@@ -28,7 +28,7 @@ public class App {
             printGuessesLeft(i);
 
             // Get guess from user
-            guess = getGuess(s).toLowerCase();
+            guess = getGuess(s).strip().toLowerCase();
 
             // Get result of guess
             result = Wordle.scoreGuess(target, guess);
