@@ -8,6 +8,8 @@ java -jar wordle.jar
 
 If you would like to build the project yourself see the instructions at the [end of this](#getting-started) README.
 
+![Screenshot of wordle running in terminal](./wordle_ui.png)
+
 ## MVP
 
 -   Recreate a simplified version of the game Wordle to be played in a Java console application
