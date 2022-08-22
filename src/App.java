@@ -77,8 +77,8 @@ public class App {
             guess = s.nextLine();
 
             try {
-                validGuess = Wordle.isValidGuess(guess);
-            } catch (InvalidGuessException e) {
+                validGuess = Wordle.isValidWord(guess);
+            } catch (InvalidWordException e) {
                 System.out.println(e.getMessage());
                 validGuess = false;
             }

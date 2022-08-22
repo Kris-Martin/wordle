@@ -66,8 +66,8 @@ public class WordleTest {
     }
 
     @Test
-    void testIsValidGuessCase0() {
-        Exception exception = assertThrows(InvalidGuessException.class, () -> Wordle.isValidGuess(null));
+    void testIsValidWordCase0() {
+        Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord(null));
 
         String expectedMsg = "Guess can not be empty";
         String actualMsg = exception.getMessage();
@@ -76,8 +76,8 @@ public class WordleTest {
     }
 
     @Test
-    void testIsValidGuessCase1() {
-        Exception exception = assertThrows(InvalidGuessException.class, () -> Wordle.isValidGuess(""));
+    void testIsValidWordCase1() {
+        Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord(""));
 
         String expectedMsg = "Guess can not be empty";
         String actualMsg = exception.getMessage();
@@ -86,8 +86,8 @@ public class WordleTest {
     }
 
     @Test
-    void testIsValidGuessCase2() {
-        Exception exception = assertThrows(InvalidGuessException.class, () -> Wordle.isValidGuess("    "));
+    void testIsValidWordCase2() {
+        Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord("    "));
 
         String expectedMsg = "Guess can not be empty";
         String actualMsg = exception.getMessage();
@@ -96,8 +96,8 @@ public class WordleTest {
     }
 
     @Test
-    void testIsValidGuessCase3() {
-        Exception exception = assertThrows(InvalidGuessException.class, () -> Wordle.isValidGuess("He11o"));
+    void testIsValidWordCase3() {
+        Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord("He11o"));
 
         String expectedMsg = "Guess must only include letters in the English alphabet - a-z or A-Z";
         String actualMsg = exception.getMessage();
@@ -106,8 +106,8 @@ public class WordleTest {
     }
 
     @Test
-    void testIsValidGuessCase4() {
-        Exception exception = assertThrows(InvalidGuessException.class, () -> Wordle.isValidGuess("four"));
+    void testIsValidWordCase4() {
+        Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord("four"));
 
         String expectedMsg = "Guess must be 5 letters long exactly";
         String actualMsg = exception.getMessage();
@@ -116,8 +116,8 @@ public class WordleTest {
     }
 
     @Test
-    void testIsValidGuessCase5() {
-        Exception exception = assertThrows(InvalidGuessException.class, () -> Wordle.isValidGuess("generous"));
+    void testIsValidWordCase5() {
+        Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord("generous"));
 
         String expectedMsg = "Guess must be 5 letters long exactly";
         String actualMsg = exception.getMessage();
@@ -126,7 +126,7 @@ public class WordleTest {
     }
 
     @Test
-    void testIsValidGuessCase6() throws InvalidGuessException {
-        assertTrue(Wordle.isValidGuess("earth"));
+    void testIsValidWordCase6() throws InvalidWordException {
+        assertTrue(Wordle.isValidWord("earth"));
     }
 }

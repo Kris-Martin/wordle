@@ -3,7 +3,7 @@ import java.util.stream.IntStream;
 
 public class Wordle {
 
-    public static Boolean isValidGuess(String guess) throws InvalidGuessException {
+    public static Boolean isValidWord(String guess) throws InvalidWordException {
         String errMsg = "";
 
         if (guess == null || guess.strip() == "") {
@@ -15,7 +15,7 @@ public class Wordle {
         } else {
             return true;
         }
-        throw new InvalidGuessException(errMsg);
+        throw new InvalidWordException(errMsg);
     }
 
     public static ArrayList<Pair> scoreGuess(String target, String guess) {
