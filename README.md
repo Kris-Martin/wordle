@@ -1,5 +1,13 @@
 # Project: Wordle
 
+To use app, download wordle.jar and then open a terminal in the directory you saved the download to and run the following command. Requires Java 17.0.4 installed to run.
+
+```
+java -jar wordle.jar
+```
+
+If you would like to build the project yourself see instructions at the end of this [end of this](#getting-started) README.
+
 ## MVP
 
 -   Recreate a simplified version of the game Wordle to be played in a Java console application
