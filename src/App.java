@@ -54,7 +54,7 @@ public class App {
 
     private static boolean checkWin(String target, String guess, int i) {
         if (target.equals(guess)) {
-            String isPlural = i > 2 ? "guesses" : "guess";
+            String isPlural = i - 1 != 1 ? "guesses" : "guess";
             System.out.printf("You won with %d %s left! Congratulations!!!\n\n", (i - 1), isPlural);
             return true;
         }
@@ -89,7 +89,7 @@ public class App {
     }
 
     private static void printGuessesLeft(int i) {
-        String isPlural = i > 1 ? "guesses" : "guess";
+        String isPlural = i != 1 ? "guesses" : "guess";
         System.out.printf("You have %d %s left...\n", i, isPlural);
     }
 }
