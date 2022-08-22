@@ -69,7 +69,7 @@ public class WordleTest {
     void testIsValidWordCase0() {
         Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord(null));
 
-        String expectedMsg = "Guess can not be empty";
+        String expectedMsg = "Word can not be empty.";
         String actualMsg = exception.getMessage();
 
         assertTrue(actualMsg.contains(expectedMsg));
@@ -79,7 +79,7 @@ public class WordleTest {
     void testIsValidWordCase1() {
         Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord(""));
 
-        String expectedMsg = "Guess can not be empty";
+        String expectedMsg = "Word can not be empty.";
         String actualMsg = exception.getMessage();
 
         assertTrue(actualMsg.contains(expectedMsg));
@@ -89,7 +89,7 @@ public class WordleTest {
     void testIsValidWordCase2() {
         Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord("    "));
 
-        String expectedMsg = "Guess can not be empty";
+        String expectedMsg = "Word can not be empty.";
         String actualMsg = exception.getMessage();
 
         assertTrue(actualMsg.contains(expectedMsg));
@@ -99,7 +99,7 @@ public class WordleTest {
     void testIsValidWordCase3() {
         Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord("He11o"));
 
-        String expectedMsg = "Guess must only include letters in the English alphabet - a-z or A-Z";
+        String expectedMsg = "Word must only include letters in the English alphabet - a-z or A-Z.";
         String actualMsg = exception.getMessage();
 
         assertTrue(actualMsg.contains(expectedMsg));
@@ -109,7 +109,7 @@ public class WordleTest {
     void testIsValidWordCase4() {
         Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord("four"));
 
-        String expectedMsg = "Guess must be 5 letters long exactly";
+        String expectedMsg = "Word must be 5 letters long exactly.";
         String actualMsg = exception.getMessage();
 
         assertTrue(actualMsg.contains(expectedMsg));
@@ -119,7 +119,7 @@ public class WordleTest {
     void testIsValidWordCase5() {
         Exception exception = assertThrows(InvalidWordException.class, () -> Wordle.isValidWord("generous"));
 
-        String expectedMsg = "Guess must be 5 letters long exactly";
+        String expectedMsg = "Word must be 5 letters long exactly.";
         String actualMsg = exception.getMessage();
 
         assertTrue(actualMsg.contains(expectedMsg));

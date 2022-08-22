@@ -7,11 +7,11 @@ public class Wordle {
         String errMsg = "";
 
         if (guess == null || guess.strip() == "") {
-            errMsg = "Guess can not be empty";
+            errMsg = "Word can not be empty.";
         } else if (!guess.matches("^[a-zA-Z]*$")) {
-            errMsg = "Guess must only include letters in the English alphabet - a-z or A-Z";
+            errMsg = "Word must only include letters in the English alphabet - a-z or A-Z.";
         } else if (guess.length() != 5) {
-            errMsg = "Guess must be 5 letters long exactly";
+            errMsg = "Word must be 5 letters long exactly.";
         } else {
             return true;
         }

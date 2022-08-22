@@ -19,14 +19,14 @@ public class JSONParser {
         JSONTokener tokener = new JSONTokener(stream);
         JSONArray words = new JSONArray(tokener);
 
-        String targetWord = getTarget(words);
+        String targetWord = getTarget(words, file);
 
         stream.close();
 
         return targetWord;
     }
 
-    private static String getTarget(JSONArray words) {
+    private static String getTarget(JSONArray words, String file) {
 
         Random randNum = new Random();
         int index = randNum.nextInt(words.length());
@@ -40,7 +40,7 @@ public class JSONParser {
             try {
                 validWord = Wordle.isValidWord(targetWord);
             } catch (InvalidWordException e) {
-                System.out.println("Error at line " + index + "of file" + e.getMessage());
+                System.out.printf("Error at line %d of file %s.\n", index, file, e.getMessage());
                 validWord = false;
                 index = randNum.nextInt(words.length());
             }
