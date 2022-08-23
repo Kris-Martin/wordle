@@ -35,7 +35,7 @@ public class JSONParser {
         boolean validWord;
 
         do {
-            targetWord = words.get(index).toString();
+            targetWord = words.get(index).toString().strip().toLowerCase();
 
             try {
                 validWord = Wordle.isValidWord(targetWord);
@@ -47,6 +47,6 @@ public class JSONParser {
 
         } while (!validWord);
 
-        return targetWord.strip().toLowerCase();
+        return targetWord;
     }
 }
