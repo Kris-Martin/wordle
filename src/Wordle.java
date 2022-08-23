@@ -8,9 +8,9 @@ public class Wordle {
 
         if (guess == null || guess.strip() == "") {
             errMsg = "Word can not be empty.";
-        } else if (!guess.matches("^[a-zA-Z]*$")) {
+        } else if (!guess.strip().matches("^[a-zA-Z]*$")) {
             errMsg = "Word must only include letters in the English alphabet - a-z or A-Z.";
-        } else if (guess.length() != 5) {
+        } else if (guess.strip().length() != 5) {
             errMsg = "Word must be 5 letters long exactly.";
         } else {
             return true;
