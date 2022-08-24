@@ -28,7 +28,7 @@ public class App {
             printGuessesLeft(i);
 
             // Get guess from user
-            guess = getGuess(s).strip().toLowerCase();
+            guess = getGuess(s);
 
             // Get result of guess
             result = Wordle.scoreGuess(target, guess);
@@ -117,7 +117,7 @@ public class App {
 
         do {
             System.out.print("Please enter a 5 letter word: ");
-            guess = s.nextLine();
+            guess = s.nextLine().strip().toLowerCase();
 
             try {
                 validGuess = Wordle.isValidWord(guess);
